@@ -1,28 +1,29 @@
 diff --git a/src/gi-stubs/repository/Gtk4LayerShell.pyi b/src/gi-stubs/repository/Gtk4LayerShell.pyi
 new file mode 100644
-index 0000000..c601d4f
+index 0000000..6149f30
 --- /dev/null
 +++ b/src/gi-stubs/repository/Gtk4LayerShell.pyi
-@@ -0,0 +1,96 @@
+@@ -0,0 +1,97 @@
++from enum import Enum
++
 +from gi.repository import Gtk
 +from gi.repository import Gdk
-+from gi.repository import GObject
 +
 +
-+class Edge(GObject.Enum):
++class Edge(Enum):
 +    LEFT            = 0 # The left edge: Edge of the screen.
 +    RIGHT           = 1 # The right edge: Edge of the screen.
 +    TOP             = 2 # The top edge: Edge of the screen.
 +    BOTTOM          = 3 # The bottom edge: Edge of the screen.
 +    ENTRY_NUMBER    = 4 # Should not be used except to get the number of entries.
 +
-+class KeyboardMode(GObject.Enum):
++class KeyboardMode(Enum):
 +    NONE            = 0 # This window should not receive keyboard events.
 +    EXCLUSIVE       = 1 # This window should not receive keyboard events.
 +    ON_DEMAND       = 2 # The user should be able to focus and unfocues this window in an implementation defined way.
 +    ENTRY_NUMBER    = 3 # Should not be used except to get the number of entries.
 +
-+class Layer(GObject.Enum):
++class Layer(Enum):
 +    BACKGROUND      = 0 # The background layer: Layer.
 +    BOTTOM          = 1 # The bottom layer: Layer.
 +    TOP             = 2 # The top layer: Layer.
