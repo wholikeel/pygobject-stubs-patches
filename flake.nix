@@ -1,22 +1,7 @@
 {
   description = "pygobject-stubs-patches";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
-    utils.url = "github:numtide/flake-utils";
+  outputs = _: {
+    overlays.default = import ./overlay.nix;
   };
-
-  outputs =
-    { nixpkgs, utils, ... }:
-    utils.lib.eachDefaultSystem (
-      system:
-      let
-        overlay = import ./overlay.nix;
-        pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
-      in
-      {
-        formatter = pkgs.nixfmt-rfc-style;
-        overlays.default = overlay;
-      }
-    );
 }
