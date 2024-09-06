@@ -7,21 +7,16 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      utils,
-      ...
-    }:
+    { nixpkgs, utils, ... }:
     utils.lib.eachDefaultSystem (
       system:
       let
         overlay = import ./overlay.nix;
-        pkgs = nixpkgs.legacyPackages.${system}.extend;
+        pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
       in
       {
         formatter = pkgs.nixfmt-rfc-style;
-        overlays = overlay;
-        # packages.default = pkgs.callPackage ./derivation.nix { };
+        overlays.default = overlay;
       }
     );
 }
